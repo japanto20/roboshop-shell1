@@ -11,7 +11,7 @@ unzip /tmp/frontend.zip
 echo -e "\e[33mCopying nginx for Roboshop\e[0m"
 pwd
 ls -l
-cp "${code_dir}"configs/nginx-roboshop.conf /etc/nginx/default.d/roboshop.conf
+cp "${code_dir}"/configs/nginx-roboshop.conf /etc/nginx/default.d/roboshop.conf
 echo -e "\e[33mEnabling nginx\e[0m"
 systemctl enable nginx
 #systemctl restart nginx
