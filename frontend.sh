@@ -4,8 +4,9 @@ dnf install nginx -y
 echo -e "\e[33mRemoving old content\e[0m"
 rm -rf /usr/share/nginx/html/*
 echo -e "\e[33mDownloading Frontend Content\e[0m"
-curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.
+curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.zip
 echo -e "\e[33mExtracting Downloaded Frontend\e[0m"
+# shellcheck disable=SC2164
 cd /usr/share/nginx/html
 unzip /tmp/frontend.zip
 echo -e "\e[33mCopying nginx for Roboshop\e[0m"
