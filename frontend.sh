@@ -1,6 +1,6 @@
 code_dir=$(pwd)
 log_file=/tmp/roboshop.log
-rm-f ${log_file}
+rm -rf${log_file}
 
 echo -e "\e[33mInstalling nginx\e[0m"
 dnf install nginx -y &>>${log_file}
