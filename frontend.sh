@@ -1,8 +1,8 @@
 source common.sh
 
 print_head "Installing nginx"
-dnf install nginx -y &>>${log_file
-echo $?
+dnf install nginx -y &>>${log_file}
+print_status
 
 print_head "Removing old content"
 rm -rf /usr/share/nginx/html/* &>>${log_file}
@@ -27,5 +27,4 @@ systemctl enable nginx &>>${log_file}
 #systemctl restart nginx
 print_head "Starting nginx"
 systemctl restart nginx &>>${log_file}
-
 
