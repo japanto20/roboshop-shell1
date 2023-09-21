@@ -21,5 +21,5 @@ systemctl enable redis &>>"${log_file}"
 status_check $?
 
 print_head "start redis"
-systemctl start redis &>>"${log_file}"
+systemctl restart redis &>>"${log_file}"
 status_check $?
