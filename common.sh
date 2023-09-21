@@ -6,8 +6,8 @@ print_head() {
   echo -e "\e[35m$1\e[0m"
 }
 
-Exit_status() {
-  if [ $? -eq 0 ]; then
+status_check() {
+  if [ $1 -eq 0 ]; then
     echo success
   else
     echo failure
