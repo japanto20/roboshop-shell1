@@ -3,7 +3,7 @@ source common.sh
 print_head "Setup MongoDB repository"
 # shellcheck disable=SC2154
 # shellcheck disable=SC1009
-cp "${code_dir}"/configs/mongodb.repo /etc/yum.repos.d/mongo.repo &>>"${log_file}
+cp "${code_dir}"/configs/mongodb.repo /etc/yum.repos.d/mongo.repo &>>"${log_file}"
 status_check $?
 
 print_head "Install MongoDB"
