@@ -2,7 +2,11 @@ source common.sh
 
 print_head "Installing nginx"
 dnf install nginx -y &>>${log_file}
-Exit_status
+if [ $? -eq 0]; then
+  echo success
+else
+  echo failure
+fi
 
 print_head "Removing old content"
 rm -rf /usr/share/nginx/html/* &>>${log_file}
