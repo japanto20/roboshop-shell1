@@ -7,5 +7,9 @@ print_head() {
 }
 
 Exit_status() {
-  echo $?
+  if [ $? -eq 0 ]; then
+    echo success
+  else
+    echo failure
+  fi
 }
