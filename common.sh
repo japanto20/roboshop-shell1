@@ -30,9 +30,8 @@ if [ "${schema_type}" == "mongo" ]; then
   mongo --host mongodb.antodevops20.online </app/schema/"${component}".js &>>"${log_file}"
   status_check $?
 
-elif [ "${schema_type}" == "mysql" ];
+elif [ "${schema_type}" == "mysql" ]; then
   print_head "install mysql"
-  status_check $?
   dnf install mysql -y &>>"${log_file}"
   print_head "Load Schema"
   mysql -h mysql.antodevops20.online -uroot -p${mysql_root_password}  < /app/schema/shipping.sql &>>"${log_file}"
