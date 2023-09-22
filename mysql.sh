@@ -15,7 +15,7 @@ cp "${code_dir}"/configs/mysql.repo /etc/yum.repos.d/mysql.repo &>>"${log_file}"
 status_check $?
 
 print_head "Install MySQL Server"
-dnf install mysql-community-server -y &>>"${log_file}"
+yum install mysql-community-server -y &>>"${log_file}"
 status_check $?
 
 print_head "Enable MySQL Service"
