@@ -20,15 +20,15 @@ schema_setup() {
 # shellcheck disable=SC1020
 if [ "${schema_type}" == "mongo" ]; then
 
-print_head "Copy MongoDb file"
-cp "${code_dir}"/configs/mongodb.repo /etc/yum.repos.d/mongo.repo &>>"${log_file}"
-status_check $?
-dnf install mongodb-org-shell -y &>>"${log_file}"
-status_check $?
+  print_head "Copy MongoDb file"
+  cp "${code_dir}"/configs/mongodb.repo /etc/yum.repos.d/mongo.repo &>>"${log_file}"
+  status_check $?
+  dnf install mongodb-org-shell -y &>>"${log_file}"
+  status_check $?
 
-print_head "Load Schema"
-mongo --host mongodb.antodevops20.online </app/schema/"${component}".js &>>"${log_file}"
-status_check $?
+  print_head "Load Schema"
+  mongo --host mongodb.antodevops20.online </app/schema/"${component}".js &>>"${log_file}"
+  status_check $?
 
 elif [ "${schema_type}" == "mysql" ];
   print_head "install mysql"
@@ -38,7 +38,6 @@ elif [ "${schema_type}" == "mysql" ];
   mysql -h mysql.antodevops20.online -uroot -p${mysql_root_password}  < /app/schema/shipping.sql &>>"${log_file}"
   status_check $?
 fi
-
 }
 
 app_prereq_setup() {
