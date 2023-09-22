@@ -28,7 +28,7 @@ status_check $?
 
 print_head "change the default root password in order to start using the database service"
 echo showdatabases | mysql -urooot -p${mysql_root_password} &>>${log_file}
-if [ $? -ne 0]; then
+if [ $? -ne 0 ]; then
   mysql_secure_installation --set-root-pass ${mysql_root_password} &>>"${log_file}"
 fi
 status_check $?
