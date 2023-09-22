@@ -2,7 +2,7 @@ source common.sh
 
 mysql_root_password=$1
 if [ -z "${mysql_root_password}" ]; then
-  echo -e "\e[31mMissing Mysql Root Password argument\e[om"
+  echo -e "\e[31mMissing Mysql Root Password argument\e[0m"
   exit 1
 fi
 
@@ -28,8 +28,4 @@ status_check $?
 
 print_head "change the default root password in order to start using the database service"
 mysql_secure_installation --set-root-pass ${mysql_root_password} &>>"${log_file}"
-status_check $?
-
-print_head "Copy MongoDb file"
-mysql -uroot -pRoboShop@1 &>>"${log_file}"
 status_check $?
