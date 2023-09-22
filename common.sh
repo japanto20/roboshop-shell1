@@ -14,6 +14,7 @@ status_check() {
     echo "Read the log file ${log_file} for more information"
     exit 1
   fi
+  }
 
 NODEJS() {
 print_head "Configure NodeJS repo"
@@ -82,5 +83,4 @@ status_check $?
 print_head "Load Schema"
 mongo --host mongodb.antodevops20.online </app/schema/${component}.js &>>"${log_file}"
 status_check $?
-
 }
