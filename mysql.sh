@@ -10,6 +10,10 @@ print_head "disable MySQL 8 version."
 dnf module disable mysql -y &>>"${log_file}"
 status_check $?
 
+print_head "Copy Mysql repo file"
+cp "${code_dir}"/configs/mysql.repo /etc/yum.repos.d/mysql.repo &>>"${log_file}"
+status_check $?
+
 print_head "Install MySQL Server"
 dnf install mysql-community-server -y &>>"${log_file}"
 status_check $?
