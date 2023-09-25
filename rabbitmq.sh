@@ -7,29 +7,29 @@ if [ -z "${roboshop_app_password}" ]; then
 fi
 
 print_head "Setup Erland repos"
-curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash &>>"${log_file}"
+curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash &>>${log_file}
 status_check $?
 
 print_head "setup rabbitmq repos"
-curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash &>>"${log_file}"
+curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash &>>${log_file}
 status_check $?
 
 print_head "Install rabbitmq server
-dnf install rabbitmq-server -y &>>"${log_file}"
+dnf install rabbitmq-server -y &>>${log_file}
 status_check $?
 
 print_head "Enable rabbitmq server"
-systemctl enable rabbitmq-server &>>"${log_file}"
+systemctl enable rabbitmq-server &>>${log_file}
 status_check $?
 
 print_head "start rabbitmq server"
-systemctl start rabbitmq-server &>>"${log_file}"
+systemctl start rabbitmq-server &>>${log_file}
 status_check $?
 
 print_head "add user"
-rabbitmqctl add_user  ${roboshop_app_password} &>>"${log_file}"
+rabbitmqctl add_user  ${roboshop_app_password} &>>${log_file}
 status_check $?
 
 print_head "set permission"
-rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>>"${log_file}"
+rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>>${log_file}
 status_check $?
