@@ -2,7 +2,7 @@ source common.sh
 
 roboshop_app_password=$1
 if [ -z "${mysql_root_password}" ]; then
-  echo -e "\e[31mMissing Mysql Root Password argument\e[0m"
+  echo -e "\e[31mMissing rabbitmq app user Password argument\e[0m"
   exit 1
 fi
 
