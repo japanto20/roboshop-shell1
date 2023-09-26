@@ -146,7 +146,7 @@ python() {
   print_head "download the dependencies & build the application."
   cd /app &>>"${log_file}"
   pip3.6 install -r requirements.txt  &>>"${log_file}"
-  status_check
+  status_check $?
 
 
   systemd_setup
