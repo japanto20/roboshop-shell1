@@ -135,17 +135,17 @@ java() {
 
 }
 
-java() {
+python() {
 
   print_head "Install Python"
-  dnf install python36 gcc python3-devel -y" &>>"${log_file}"
+  dnf install python36 gcc python3-devel -y &>>"${log_file}"
   status_check $?
 
   app_prereq_setup
 
   print_head "download the dependencies & build the application."
   cd /app &>>"${log_file}"
-  pip3.6 install -r requirements.txt "${log_file}"
+  pip3.6 install -r requirements.txt  &>>"${log_file}"
   status_check
 
 
